@@ -3,8 +3,16 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+/* :root {
+  --primary: #fb8133;
+  --primary-dark: #f53434;
+  --primary-gradient: linear-gradient(to right bottom, #fb8133, #f53434);
+} */
+
 body {
-  background-color: #f5f5f5;
+  /* background-color: #f5f5f5; */
+  /* background-color: #f96b33; */
+  background: linear-gradient(to bottom right, #fff7ed, #ffffff);
 }
 * {
   font-family: "Inter", sans-serif;

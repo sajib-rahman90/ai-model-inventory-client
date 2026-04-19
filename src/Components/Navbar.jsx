@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 import { NavLink } from "react-router";
 
 const Navbar = () => {
@@ -37,21 +38,41 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">Ai-Inventory</a>
+          <a className="text-[#f96b33]  text-xl">Ai-Inventory</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <NavLink to={"/"}>Home</NavLink>
+              <NavLink
+                className={({ isActive }) => (isActive ? "text-cyan-300" : "")}
+                to={"/"}
+              >
+                Home
+              </NavLink>
             </li>
 
             <li>
-              <NavLink to={"/models"}>AllModels</NavLink>
+              <NavLink
+                className={({ isActive }) => (isActive ? "text-cyan-300" : "")}
+                to={"/models"}
+              >
+                All Models
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive }) => (isActive ? "text-cyan-300" : "")}
+                to={"/add-model"}
+              >
+                Add Model
+              </NavLink>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <Link to={"/login"} className="btn">
+            Login
+          </Link>
         </div>
       </div>
     </div>
