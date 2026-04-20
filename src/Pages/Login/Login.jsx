@@ -1,12 +1,57 @@
-import React from "react";
-import { Link } from "react-router";
+import React, { use, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
+import { AuthContext } from "../../Context/AuthContext";
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const { signInUserFunc, signInWithGoogleFunc, user } = use(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  // console.log(location);
+  console.log(user);
+
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
+
+  const handleLogIn = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    signInUserFunc(email, password)
+      .then((res) => {
+        console.log(res);
+        e.target.reset();
+        navigate(location.state || "/");
+        toast.success("Login Succesfull!");
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Invalid email or password");
+      });
+  };
+
+  const handleGoogleSignIn = () => {
+    // console.log("button is clicked");
+    signInWithGoogleFunc()
+      .then((res) => {
+        console.log(res);
+        navigate(location.state || "/");
+        toast.success("Google signin Succesfull");
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error(err);
+      });
+  };
   return (
     <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-orange-50 to-white px-4">
       <div className="w-full max-w-md">
         <div className="bg-white/80 backdrop-blur-lg border border-gray-200 rounded-2xl shadow-xl p-6 sm:p-8">
-          <form className="space-y-5">
+          <form onSubmit={handleLogIn} className="space-y-5">
             <h2 className="text-2xl sm:text-3xl font-semibold text-center text-gray-800">
               Welcome Back
             </h2>
@@ -21,6 +66,7 @@ const Login = () => {
               </label>
               <input
                 type="email"
+                name="email"
                 placeholder="you@example.com"
                 required
                 className="w-full px-4 py-2.5 rounded-lg border border-gray-300 
@@ -36,6 +82,7 @@ const Login = () => {
               </label>
               <input
                 type="password"
+                name="password"
                 placeholder="••••••••"
                 required
                 className="w-full px-4 py-2.5 rounded-lg border border-gray-300 
@@ -54,7 +101,7 @@ const Login = () => {
             {/* Login Button */}
             <button
               type="submit"
-              className="w-full bg-orange-500 hover:bg-orange-600 
+              className="w-full bg-linear-to-r from-orange-400 to-orange-500
           text-white py-2.5 rounded-lg font-medium transition shadow-md"
             >
               Login
@@ -68,7 +115,10 @@ const Login = () => {
             </div>
 
             {/* Google Login */}
-            <button className="w-full flex items-center justify-center gap-2 border border-gray-300 rounded-lg py-2.5 hover:bg-gray-50 transition">
+            <button
+              onClick={handleGoogleSignIn}
+              className="w-full flex items-center justify-center gap-2 border border-gray-300 rounded-lg py-2.5 hover:bg-gray-50 transition"
+            >
               <svg width="18" height="18" viewBox="0 0 48 48">
                 <path
                   fill="#EA4335"

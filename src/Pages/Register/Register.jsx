@@ -1,12 +1,70 @@
-import React from "react";
-import { Link } from "react-router";
+import React, { use, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router";
+import { AuthContext } from "../../Context/AuthContext";
+import { toast } from "react-toastify";
+import { FaEye } from "react-icons/fa";
+import { IoEyeOff } from "react-icons/io5";
 
 const Register = () => {
+  const { createUserFunc, signInWithGoogleFunc, user } = use(AuthContext);
+  const navigate = useNavigate();
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const photoURL = e.target.photoURL.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    // console.log(name, photoURL, email, password);
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+    if (!passwordRegex.test(password)) {
+      // toast error
+      toast.error(
+        "Password must contain at least 1 uppercase, 1 lowercase and be 6+ characters long",
+      );
+      return;
+    }
+
+    createUserFunc(email, password)
+      .then((res) => {
+        console.log(res.user);
+        e.target.reset();
+        navigate(location.state || "/");
+        toast.success("Ragestation is Succesfull");
+      })
+      .catch((err) => {
+        const errorCode = err.code;
+        const errorMessage = err.message;
+        console.log(errorMessage, errorCode);
+        toast.error("Email already is used");
+      });
+  };
+
+  const handleGoogleSignin = () => {
+    // console.log("butoon is clicked");
+    signInWithGoogleFunc()
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((erro) => {
+        console.log(erro);
+      });
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-orange-50 to-white pt-4 pb-4">
       <div className="w-full max-w-md">
         <div className="bg-white/80 backdrop-blur-lg border border-gray-200 rounded-2xl shadow-xl p-6 sm:p-8">
-          <form className="space-y-5">
+          <form onSubmit={handleRegister} className="space-y-5">
             <h2 className="text-2xl sm:text-3xl font-semibold text-center text-gray-800">
               Create Account
             </h2>
@@ -21,6 +79,7 @@ const Register = () => {
               </label>
               <input
                 type="text"
+                name="name"
                 placeholder="Your full name"
                 required
                 className="w-full px-4 py-2.5 rounded-lg border border-gray-300 
@@ -36,6 +95,7 @@ const Register = () => {
               </label>
               <input
                 type="email"
+                name="email"
                 placeholder="you@example.com"
                 required
                 className="w-full px-4 py-2.5 rounded-lg border border-gray-300 
@@ -51,8 +111,8 @@ const Register = () => {
               </label>
               <input
                 type="text"
+                name="photoURL"
                 placeholder="https://your-image-link.com"
-                required
                 className="w-full px-4 py-2.5 rounded-lg border border-gray-300 
             focus:ring-2 focus:ring-orange-400 focus:border-orange-400 
             outline-none transition"
@@ -60,18 +120,26 @@ const Register = () => {
             </div>
 
             {/* Password */}
-            <div>
+            <div className="relative">
               <label className="block text-sm font-medium text-gray-600 mb-1">
                 Password
               </label>
               <input
-                type="password"
+                type={show ? "text" : "password"}
+                name="password"
                 placeholder="••••••••"
                 required
                 className="w-full px-4 py-2.5 rounded-lg border border-gray-300 
             focus:ring-2 focus:ring-orange-400 focus:border-orange-400 
             outline-none transition"
               />
+
+              <span
+                onClick={() => setShow(!show)}
+                className="absolute right-2 top-9 cursor-pointer z-20"
+              >
+                {show ? <FaEye /> : <IoEyeOff />}
+              </span>
             </div>
 
             {/* Register Button */}
@@ -91,7 +159,10 @@ const Register = () => {
             </div>
 
             {/* Google Signup */}
-            <button className="w-full flex items-center justify-center gap-2 border border-gray-300 rounded-lg py-2.5 hover:bg-gray-50 transition">
+            <button
+              onClick={handleGoogleSignin}
+              className="w-full flex items-center justify-center gap-2 border border-gray-300 rounded-lg py-2.5 hover:bg-gray-50 transition"
+            >
               <svg width="18" height="18" viewBox="0 0 48 48">
                 <path
                   fill="#EA4335"
