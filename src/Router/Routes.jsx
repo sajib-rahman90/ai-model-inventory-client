@@ -5,6 +5,7 @@ import AllModels from "../Pages/AllModels/AllModels";
 import AddModel from "../Pages/AddModel/AddModel";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import PrivateRoute from "./PrivateRoute";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -20,8 +21,13 @@ export const router = createBrowserRouter([
       },
       {
         path: "/add-model",
-        element: <AddModel />,
+        element: (
+          <PrivateRoute>
+            <AddModel />
+          </PrivateRoute>
+        ),
       },
+
       {
         path: "/login",
         element: <Login />,
