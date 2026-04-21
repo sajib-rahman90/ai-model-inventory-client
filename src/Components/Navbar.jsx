@@ -71,6 +71,14 @@ const Navbar = () => {
                 Add Model
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                className={({ isActive }) => (isActive ? "text-cyan-300" : "")}
+                to={"/update-model/:id"}
+              >
+                Update Models
+              </NavLink>
+            </li>
           </ul>
         </div>
         <div className="navbar-end">
