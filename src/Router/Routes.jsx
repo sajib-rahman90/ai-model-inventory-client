@@ -23,6 +23,7 @@ export const router = createBrowserRouter([
       {
         path: "/models",
         element: <AllModels />,
+        loader: () => fetch("http://localhost:3000/models"),
       },
       {
         path: "/add-model",
