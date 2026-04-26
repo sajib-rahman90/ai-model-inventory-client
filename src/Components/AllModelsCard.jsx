@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const AllModelsCard = ({ model }) => {
   return (
@@ -27,9 +28,12 @@ const AllModelsCard = ({ model }) => {
         </p>
 
         {/* Button */}
-        <button className="btn w-full rounded-lg border-gray-300 btn-sm bg-linear-to-r from-orange-400 to-orange-500 text-white py-2.5 font-medium hover:from-orange-500 hover:to-orange-600 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+        <Link
+          to={`/models/${model._id}`}
+          className="btn w-full rounded-lg border-gray-300 btn-sm bg-linear-to-r from-orange-400 to-orange-500 text-white py-2.5 font-medium hover:from-orange-500 hover:to-orange-600 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-center"
+        >
           View Details
-        </button>
+        </Link>
       </div>
     </div>
   );
