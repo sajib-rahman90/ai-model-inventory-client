@@ -42,6 +42,8 @@ export const router = createBrowserRouter([
       {
         path: "/update-model/:id",
         element: <UpdateModel />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/models/${params.id}`),
       },
       {
         path: "/my-models",

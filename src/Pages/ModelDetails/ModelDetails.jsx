@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 
 const ModelDetails = () => {
   const data = useLoaderData();
@@ -58,24 +58,24 @@ const ModelDetails = () => {
             <div className="mt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div className="flex items-center gap-3">
                 <div className="bg-orange-100 text-orange-600 px-4 py-2 rounded-lg text-sm font-medium">
-                  Purchased {model.purchasedCount ?? 0} times
+                  Purchased {model.purchased ?? 0} times
                 </div>
               </div>
 
               <div className="flex gap-3 justify-between w-full md:w-auto">
-                <button
-                  onClick={() => console.log("Edit clicked")}
+                {/* Button */}
+                <Link
+                  to={`/update-model/${model._id}`}
                   className="px-6 py-3 rounded-xl bg-blue-500 text-white text-sm font-medium hover:bg-blue-600 transition-all duration-300 shadow-md"
                 >
                   Edit
-                </button>
-
-                <button
-                  onClick={() => console.log("Delete clicked")}
+                </Link>
+                <Link
+                  // to={`/models/${model._id}`}
                   className="px-6 py-3 rounded-xl bg-red-500 text-white text-sm font-medium hover:bg-red-600 transition-all duration-300 shadow-md"
                 >
                   Delete
-                </button>
+                </Link>
               </div>
             </div>
           </div>
