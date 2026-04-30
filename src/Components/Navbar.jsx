@@ -79,6 +79,14 @@ const Navbar = () => {
                 My Models
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                className={({ isActive }) => (isActive ? "text-cyan-300" : "")}
+                to={"/purchase"}
+              >
+                My Purchase
+              </NavLink>
+            </li>
           </ul>
         </div>
         <div className="navbar-end">

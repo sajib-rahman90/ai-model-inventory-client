@@ -1,16 +1,15 @@
 import React, { use, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import Loading from "../../Components/Loading";
-import AllModelsCard from "../../Components/AllModelsCard";
 import { Link } from "react-router";
 
-const MyModels = () => {
+const MyPurchase = () => {
   const { user } = use(AuthContext);
   const [models, setModels] = useState([]);
   const [loading, setLoading] = useState(true);
-  // console.log(models);
+
   useEffect(() => {
-    fetch(`http://localhost:3000/my-models?email=${user.email}`)
+    fetch(`http://localhost:3000/my-purchase?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setModels(data);
@@ -25,7 +24,7 @@ const MyModels = () => {
     <div>
       <div className="w-11/12 mx-auto mt-7">
         <h1 className="text-center text-2xl md:text-3xl lg:text-4xl font-extrabold">
-          My Models
+          My Purchase
         </h1>
         <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 py-8  gap-8">
           {models.map((model) => (
@@ -57,7 +56,13 @@ const MyModels = () => {
                 </p>
                 <p className="text-sm text-gray-500 leading-relaxed">
                   <span className="font-medium text-gray-700">Created By:</span>{" "}
-                  <span className="text-orange-500">{model.createdBy}</span>
+                  {model.createdBy}
+                </p>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  <span className="font-medium text-gray-700">
+                    Purchase By:
+                  </span>{" "}
+                  <span className="text-orange-500">{model.purchasedBy}</span>
                 </p>
 
                 <Link
@@ -75,4 +80,4 @@ const MyModels = () => {
   );
 };
 
-export default MyModels;
+export default MyPurchase;

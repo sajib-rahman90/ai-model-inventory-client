@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from "react-router";
 import Swal from "sweetalert2";
 import Loading from "../../Components/Loading";
 import { AuthContext } from "../../Context/AuthContext";
+import { toast } from "react-toastify";
 
 const ModelDetails = () => {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ const ModelDetails = () => {
         setModel(data.result);
         setLoading(false);
       });
-  }, []);
+  }, [user, id]);
 
   const handleDelete = () => {
     Swal.fire({
@@ -55,6 +56,24 @@ const ModelDetails = () => {
             console.log(err);
           });
     });
+  };
+
+  const handlePurchase = () => {
+    fetch(`http://localhost:3000/purchase`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...model, purchasedBy: user.email }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        toast.success("Successfully Purchase!");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   if (loading) {
@@ -125,6 +144,13 @@ const ModelDetails = () => {
                 >
                   Edit
                 </Link>
+
+                <button
+                  onClick={handlePurchase}
+                  className="px-6 py-3 rounded-xl bg-orange-400 text-white text-sm font-medium hover:bg-red-600 transition-all duration-300 shadow-md"
+                >
+                  Purchase
+                </button>
 
                 <button
                   onClick={handleDelete}
