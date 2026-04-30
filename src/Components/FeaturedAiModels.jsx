@@ -21,8 +21,8 @@ const FeaturedAiModels = ({ model }) => {
         </p>
 
         <p className="text-sm text-gray-500 leading-relaxed">
-          <span className="font-medium text-gray-700">Use Case:</span>{" "}
-          {model.useCase}
+          <span className="font-medium text-gray-700">Description:</span>{" "}
+          {model.description}
         </p>
 
         <Link
