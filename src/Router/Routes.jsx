@@ -35,6 +35,14 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "/my-models",
+        element: (
+          <PrivateRoute>
+            <MyModels />
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/models/:id",
         element: (
           <PrivateRoute>
