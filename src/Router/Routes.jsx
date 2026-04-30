@@ -36,13 +36,21 @@ export const router = createBrowserRouter([
       },
       {
         path: "/models/:id",
-        element: <ModelDetails />,
+        element: (
+          <PrivateRoute>
+            <ModelDetails />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:3000/models/${params.id}`),
       },
       {
         path: "/update-model/:id",
-        element: <UpdateModel />,
+        element: (
+          <PrivateRoute>
+            <UpdateModel />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:3000/models/${params.id}`),
       },

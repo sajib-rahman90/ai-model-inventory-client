@@ -8,7 +8,7 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   // console.log(location);
-  console.log(user);
+  // console.log(user);
 
   useEffect(() => {
     if (user) {

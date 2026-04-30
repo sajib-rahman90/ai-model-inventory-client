@@ -2,6 +2,7 @@ import React from "react";
 import AboutAiModels from "../../Components/AboutAiModels";
 import FeaturedAiModels from "../../Components/FeaturedAiModels";
 import { useLoaderData } from "react-router";
+import GetStarted from "../../Components/GetStarted";
 
 const Home = () => {
   const models = useLoaderData();
@@ -19,6 +20,7 @@ const Home = () => {
       </div>
 
       <AboutAiModels />
+      <GetStarted />
     </div>
   );
 };
