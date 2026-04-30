@@ -5,6 +5,8 @@ import { toast } from "react-toastify";
 const UpdateModel = () => {
   const data = useLoaderData();
   const model = data.result;
+  console.log(data);
+  console.log(model);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {

@@ -1,11 +1,28 @@
-import React from "react";
-import { Link, useLoaderData, useNavigate } from "react-router";
+import React, { use, useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router";
 import Swal from "sweetalert2";
+import Loading from "../../Components/Loading";
+import { AuthContext } from "../../Context/AuthContext";
 
 const ModelDetails = () => {
-  const data = useLoaderData();
-  const model = data.result;
   const navigate = useNavigate();
+  const [model, setModel] = useState({});
+  const [loading, setLoading] = useState(true);
+  const { id } = useParams();
+  const { user } = use(AuthContext);
+  useEffect(() => {
+    fetch(`http://localhost:3000/models/${id}`, {
+      headers: {
+        authorization: `Bearer ${user.accessToken}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setModel(data.result);
+        setLoading(false);
+      });
+  }, []);
 
   const handleDelete = () => {
     Swal.fire({
@@ -39,6 +56,10 @@ const ModelDetails = () => {
           });
     });
   };
+
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <div className="min-h-screen  flex items-center justify-center px-4 py-10">
       <div className="w-full max-w-6xl bg-white rounded-3xl shadow-xl overflow-hidden">
@@ -98,7 +119,6 @@ const ModelDetails = () => {
               </div>
 
               <div className="flex gap-3 justify-between w-full md:w-auto">
-                {/* Button */}
                 <Link
                   to={`/update-model/${model._id}`}
                   className="px-6 py-3 rounded-xl bg-blue-500 text-white text-sm font-medium hover:bg-blue-600 transition-all duration-300 shadow-md"
