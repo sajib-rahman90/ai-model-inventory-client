@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useEffect, useState } from "react";
 import { Link } from "react-router";
 import { NavLink } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
@@ -7,6 +7,18 @@ import { IoLogIn, IoLogOut } from "react-icons/io5";
 const Navbar = () => {
   const { user, signOutUserFunc } = use(AuthContext);
   // console.log(user);
+
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  useEffect(() => {
+    const html = document.querySelector("html");
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const handleTheme = (checked) => {
+    setTheme(checked ? "dark" : "light");
+  };
   return (
     <div>
       <div className="navbar bg-base-100 shadow-sm">
@@ -34,11 +46,55 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <NavLink to={"/"}>Home</NavLink>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-cyan-300" : ""
+                  }
+                  to={"/"}
+                >
+                  Home
+                </NavLink>
               </li>
 
               <li>
-                <NavLink to={"/models"}>AllModels</NavLink>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-cyan-300" : ""
+                  }
+                  to={"/models"}
+                >
+                  All Models
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-cyan-300" : ""
+                  }
+                  to={"/add-model"}
+                >
+                  Add Model
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-cyan-300" : ""
+                  }
+                  to={"/my-models"}
+                >
+                  My Models
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-cyan-300" : ""
+                  }
+                  to={"/purchase"}
+                >
+                  My Purchase
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -89,7 +145,56 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end gap-3">
+          <label className="toggle text-base-content">
+            <input
+              onChange={(e) => handleTheme(e.target.checked)}
+              type="checkbox"
+              value="synthwave"
+              defaultChecked={localStorage.getItem("theme") === "dark"}
+              className="theme-controller"
+            />
+
+            <svg
+              aria-label="sun"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <g
+                strokeLinejoin="round"
+                strokeLinecap="round"
+                strokeWidth="2"
+                fill="none"
+                stroke="currentColor"
+              >
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="m4.93 4.93 1.41 1.41"></path>
+                <path d="m17.66 17.66 1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="m6.34 17.66-1.41 1.41"></path>
+                <path d="m19.07 4.93-1.41 1.41"></path>
+              </g>
+            </svg>
+
+            <svg
+              aria-label="moon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <g
+                strokeLinejoin="round"
+                strokeLinecap="round"
+                strokeWidth="2"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+              </g>
+            </svg>
+          </label>
           {user ? (
             <div className="dropdown dropdown-end z-50">
               <div
