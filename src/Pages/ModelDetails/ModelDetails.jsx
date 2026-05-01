@@ -11,6 +11,8 @@ const ModelDetails = () => {
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
   const { user } = use(AuthContext);
+  const [refetch, setRefetch] = useState(false);
+
   useEffect(() => {
     fetch(`http://localhost:3000/models/${id}`, {
       headers: {
@@ -23,7 +25,7 @@ const ModelDetails = () => {
         setModel(data.result);
         setLoading(false);
       });
-  }, [user, id]);
+  }, [user, id, refetch]);
 
   const handleDelete = () => {
     Swal.fire({
@@ -59,17 +61,30 @@ const ModelDetails = () => {
   };
 
   const handlePurchase = () => {
-    fetch(`http://localhost:3000/purchase`, {
+    const finalPurchase = {
+      name: model.name,
+      useCase: model.useCase,
+      purchased: model.purchased,
+      image: model.image,
+      framework: model.framework,
+      description: model.description,
+      dataset: model.dataset,
+      purchasedBy: user.eamil,
+      createdBy: model.createdBy,
+      createdAt: new Date(),
+    };
+    fetch(`http://localhost:3000/purchase/${model._id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ ...model, purchasedBy: user.email }),
+      body: JSON.stringify(finalPurchase),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         toast.success("Successfully Purchase!");
+        setRefetch(!refetch);
       })
       .catch((err) => {
         console.log(err);
