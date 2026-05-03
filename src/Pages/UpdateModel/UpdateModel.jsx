@@ -31,6 +31,7 @@ const UpdateModel = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         toast.success("Successfully Updated!");
         navigate(`/models/${model._id}`);
       })

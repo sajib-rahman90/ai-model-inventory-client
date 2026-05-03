@@ -162,7 +162,7 @@ const ModelDetails = () => {
 
                 <button
                   onClick={handlePurchase}
-                  className="px-6 py-3 rounded-xl bg-orange-400 text-white text-sm font-medium hover:bg-red-600 transition-all duration-300 shadow-md"
+                  className="px-6 py-3 rounded-xl bg-orange-400 text-white text-sm font-medium hover:bg-orange-600 transition-all duration-300 shadow-md"
                 >
                   Purchase
                 </button>

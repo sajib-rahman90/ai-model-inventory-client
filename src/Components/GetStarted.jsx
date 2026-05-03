@@ -7,7 +7,7 @@ const GetStarted = () => {
       <div className="max-w-6xl mx-auto">
         <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="text-center md:text-left max-w-xl">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-800 leading-snug">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 leading-snug">
               Start Managing Your{" "}
               <span className="text-orange-500">AI Models</span> Today
             </h2>

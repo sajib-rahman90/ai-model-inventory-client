@@ -26,7 +26,7 @@ const AllModels = () => {
   }
   return (
     <div className="w-11/12 mx-auto mt-7">
-      <h1 className="text-center text-2xl md:text-3xl lg:text-4xl font-extrabold ">
+      <h1 className="text-center text-2xl md:text-3xl lg:text-4xl font-bold">
         All Models
       </h1>
 

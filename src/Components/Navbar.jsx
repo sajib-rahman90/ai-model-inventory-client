@@ -48,7 +48,9 @@ const Navbar = () => {
               <li>
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "text-cyan-300" : ""
+                    isActive
+                      ? "text-md text-orange-500 font-semibold"
+                      : "text-md font-semibold"
                   }
                   to={"/"}
                 >
@@ -59,7 +61,9 @@ const Navbar = () => {
               <li>
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "text-cyan-300" : ""
+                    isActive
+                      ? "text-md text-orange-500 font-semibold"
+                      : "text-md font-semibold"
                   }
                   to={"/models"}
                 >
@@ -69,7 +73,9 @@ const Navbar = () => {
               <li>
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "text-cyan-300" : ""
+                    isActive
+                      ? "text-md text-orange-500 font-semibold"
+                      : "text-md font-semibold"
                   }
                   to={"/add-model"}
                 >
@@ -79,7 +85,9 @@ const Navbar = () => {
               <li>
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "text-cyan-300" : ""
+                    isActive
+                      ? "text-md text-orange-500 font-semibold"
+                      : "text-md font-semibold"
                   }
                   to={"/my-models"}
                 >
@@ -89,7 +97,9 @@ const Navbar = () => {
               <li>
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "text-cyan-300" : ""
+                    isActive
+                      ? "text-md text-orange-500 font-semibold"
+                      : "text-md font-semibold"
                   }
                   to={"/purchase"}
                 >
@@ -98,13 +108,29 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <a className="text-[#f96b33]  text-xl">Ai-Inventory</a>
+          <div className="flex items-center">
+            <Link to="/" className="flex items-center gap-2 group">
+              <img
+                className="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-110"
+                src="/AI Inventory.svg"
+                alt="AI Model Logo"
+              />
+
+              <span className="text-xl font-semibold text-orange-500">
+                AI Model
+              </span>
+            </Link>
+          </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
               <NavLink
-                className={({ isActive }) => (isActive ? "text-cyan-300" : "")}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-lg text-orange-500 font-semibold"
+                    : "text-lg font-semibold"
+                }
                 to={"/"}
               >
                 Home
@@ -113,7 +139,11 @@ const Navbar = () => {
 
             <li>
               <NavLink
-                className={({ isActive }) => (isActive ? "text-cyan-300" : "")}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-lg text-orange-500 font-semibold"
+                    : "text-lg font-semibold"
+                }
                 to={"/models"}
               >
                 All Models
@@ -121,26 +151,14 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                className={({ isActive }) => (isActive ? "text-cyan-300" : "")}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-lg text-orange-500 font-semibold"
+                    : "text-lg font-semibold"
+                }
                 to={"/add-model"}
               >
                 Add Model
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className={({ isActive }) => (isActive ? "text-cyan-300" : "")}
-                to={"/my-models"}
-              >
-                My Models
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className={({ isActive }) => (isActive ? "text-cyan-300" : "")}
-                to={"/purchase"}
-              >
-                My Purchase
               </NavLink>
             </li>
           </ul>
@@ -214,7 +232,7 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex="-1"
-                className="menu  menu-sm dropdown-content bg-linear-to-r from-orange-100 to-orange-200 rounded-box z-50 mt-3 w-52 p-2 shadow"
+                className="menu  menu-sm dropdown-content bg-linear-to-r from-gray-100 to-orange-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
               >
                 <div className=" pb-3 border-b border-b-gray-200">
                   <li className="text-sm font-bold">{user.displayName}</li>
@@ -222,9 +240,34 @@ const Navbar = () => {
                 </div>
 
                 <li>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-md text-orange-500 font-semibold"
+                        : "text-md font-semibold"
+                    }
+                    to={"/purchase"}
+                  >
+                    My Purchase
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-md text-orange-500 font-semibold"
+                        : "text-md font-semibold"
+                    }
+                    to={"/my-models"}
+                  >
+                    My Models
+                  </NavLink>
+                </li>
+
+                <li>
                   <button
                     onClick={signOutUserFunc}
-                    className="btn rounded-lg border-gray-300  btn-sm bg-linear-to-r from-orange-400 to-orange-500 text-white py-2.5  font-medium "
+                    className="btn rounded-lg mt-1.5 btn-sm bg-linear-to-r from-orange-400 to-orange-500 text-white py-2.5  font-medium "
                   >
                     Logout
                   </button>

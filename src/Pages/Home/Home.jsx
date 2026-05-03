@@ -3,13 +3,15 @@ import AboutAiModels from "../../Components/AboutAiModels";
 import FeaturedAiModels from "../../Components/FeaturedAiModels";
 import { useLoaderData } from "react-router";
 import GetStarted from "../../Components/GetStarted";
+import HomeSlider from "../../Components/HomeSlider";
 
 const Home = () => {
   const models = useLoaderData();
   return (
     <div>
+      <HomeSlider />
       <div className="w-11/12 mx-auto mt-7">
-        <h1 className="text-center text-2xl md:text-3xl lg:text-4xl font-extrabold">
+        <h1 className="text-center text-2xl md:text-3xl lg:text-4xl font-bold">
           Featured AI Models
         </h1>
         <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 py-8  gap-8">
