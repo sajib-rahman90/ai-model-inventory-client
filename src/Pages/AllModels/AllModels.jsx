@@ -7,7 +7,6 @@ const AllModels = () => {
   const data = useLoaderData();
   const [models, setModels] = useState(data);
   const [loading, setLoading] = useState(false);
-
   const handleSearch = (e) => {
     e.preventDefault();
     const search_text = e.target.search.value;

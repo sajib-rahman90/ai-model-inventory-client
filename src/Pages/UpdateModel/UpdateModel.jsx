@@ -1,11 +1,10 @@
-import React from "react";
 import { useLoaderData, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 
 const UpdateModel = () => {
   const data = useLoaderData();
-  const model = data;
-  // const model = data.result;
+  // const model = data;
+  const model = data.result;
   console.log(data);
   console.log(model);
   const navigate = useNavigate();
@@ -55,7 +54,7 @@ const UpdateModel = () => {
               </label>
               <input
                 type="text"
-                defaultValue={model.name}
+                defaultValue={model?.name}
                 name="name"
                 placeholder="Model Name"
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400"
@@ -68,7 +67,7 @@ const UpdateModel = () => {
               </label>
               <input
                 type="text"
-                defaultValue={model.framework}
+                defaultValue={model?.framework}
                 name="framework"
                 placeholder="(e.g. TensorFlow, PyTorch)"
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400"
@@ -83,7 +82,7 @@ const UpdateModel = () => {
               </label>
               <input
                 type="text"
-                defaultValue={model.useCase}
+                defaultValue={model?.useCase}
                 name="useCase"
                 placeholder="(e.g. NLP, Computer Vision)"
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400"
@@ -96,7 +95,7 @@ const UpdateModel = () => {
               </label>
               <input
                 type="text"
-                defaultValue={model.dataset}
+                defaultValue={model?.dataset}
                 name="dataset"
                 placeholder="Dataset Name"
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400"
@@ -110,7 +109,7 @@ const UpdateModel = () => {
             </label>
             <textarea
               name="description"
-              defaultValue={model.description}
+              defaultValue={model?.description}
               rows="4"
               placeholder="Short Description"
               className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400"
@@ -123,7 +122,7 @@ const UpdateModel = () => {
             </label>
             <input
               type="url"
-              defaultValue={model.image}
+              defaultValue={model?.image}
               name="image"
               placeholder="Image URL"
               className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400"

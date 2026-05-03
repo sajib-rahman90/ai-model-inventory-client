@@ -8,7 +8,7 @@ const AboutAiModels = () => {
         <div className="max-w-5xl mx-auto">
           {/* Heading */}
           <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+            <h2 className="text-center text-2xl md:text-3xl lg:text-4xl font-bold">
               About AI Models
             </h2>
             <p className="mt-3 text-gray-600 max-w-xl mx-auto">

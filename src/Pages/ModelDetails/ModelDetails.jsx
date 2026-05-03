@@ -69,7 +69,7 @@ const ModelDetails = () => {
       framework: model.framework,
       description: model.description,
       dataset: model.dataset,
-      purchasedBy: user.eamil,
+      purchasedBy: user.email,
       createdBy: model.createdBy,
       createdAt: new Date(),
     };
