@@ -45,7 +45,7 @@ const Register = () => {
         const errorCode = err.code;
         const errorMessage = err.message;
         console.log(errorMessage, errorCode);
-        toast.error("Email already is used");
+        toast.error("Email already in use.");
       });
   };
 
@@ -65,12 +65,10 @@ const Register = () => {
       <div className="w-full max-w-md">
         <div className="bg-white/80 backdrop-blur-lg border border-gray-200 rounded-2xl shadow-xl p-6 sm:p-8">
           <form onSubmit={handleRegister} className="space-y-5">
-            <h2 className="text-2xl sm:text-3xl font-semibold text-center text-gray-800">
-              Create Account
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-center text-gray-800 leading-tight">
+              Register for AI Model Inventory Manager
             </h2>
-            <p className="text-sm text-gray-500 text-center">
-              Sign up to get started
-            </p>
+            <p className="text-sm text-gray-500 text-center">Create Account</p>
 
             {/* Name */}
             <div>

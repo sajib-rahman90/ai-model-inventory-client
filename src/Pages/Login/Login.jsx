@@ -52,8 +52,8 @@ const Login = () => {
       <div className="w-full max-w-md">
         <div className="bg-white/80 backdrop-blur-lg border border-gray-200 rounded-2xl shadow-xl p-6 sm:p-8">
           <form onSubmit={handleLogIn} className="space-y-5">
-            <h2 className="text-2xl sm:text-3xl font-semibold text-center text-gray-800">
-              Welcome Back
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-center text-gray-800 leading-tight">
+              Login to AI Model Inventory Manager
             </h2>
             <p className="text-sm text-gray-500 text-center">
               Login to continue
