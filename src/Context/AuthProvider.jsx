@@ -33,7 +33,7 @@ const AuthProvider = ({ children }) => {
 
   const signOutUserFunc = () => {
     setLoading(true);
-    signOut(auth);
+    return signOut(auth);
   };
 
   useEffect(() => {

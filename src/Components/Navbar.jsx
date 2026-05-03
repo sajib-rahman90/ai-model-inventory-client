@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import { NavLink } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import { IoLogIn, IoLogOut } from "react-icons/io5";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { user, signOutUserFunc } = use(AuthContext);
@@ -15,6 +16,16 @@ const Navbar = () => {
     html.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
   }, [theme]);
+
+  const handleSignOut = () => {
+    signOutUserFunc()
+      .then(() => {
+        toast.success("Sign Out Succesfull.");
+      })
+      .catch((e) => {
+        toast.error(e.message);
+      });
+  };
 
   const handleTheme = (checked) => {
     setTheme(checked ? "dark" : "light");
@@ -128,8 +139,8 @@ const Navbar = () => {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? "text-lg text-orange-500 font-semibold"
-                    : "text-lg font-semibold"
+                    ? "text-[16px] text-orange-500 font-semibold"
+                    : "text-[16px] font-semibold"
                 }
                 to={"/"}
               >
@@ -141,8 +152,8 @@ const Navbar = () => {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? "text-lg text-orange-500 font-semibold"
-                    : "text-lg font-semibold"
+                    ? "text-[16px] text-orange-500 font-semibold"
+                    : "text-[16px] font-semibold"
                 }
                 to={"/models"}
               >
@@ -153,8 +164,8 @@ const Navbar = () => {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? "text-lg text-orange-500 font-semibold"
-                    : "text-lg font-semibold"
+                    ? "text-[16px] text-orange-500 font-semibold"
+                    : "text-[16px] font-semibold"
                 }
                 to={"/add-model"}
               >
@@ -266,8 +277,8 @@ const Navbar = () => {
 
                 <li>
                   <button
-                    onClick={signOutUserFunc}
-                    className="btn rounded-lg mt-1.5 btn-sm bg-linear-to-r from-orange-400 to-orange-500 text-white py-2.5  font-medium "
+                    onClick={handleSignOut}
+                    className="btn rounded-lg mt-1.5 btn-sm bg-linear-to-r from-orange-400 to-orange-500 text-white py-2.5 font-medium hover:from-orange-500 hover:to-orange-600 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 "
                   >
                     Logout
                   </button>
@@ -277,7 +288,7 @@ const Navbar = () => {
           ) : (
             <Link
               to={"/login"}
-              className="btn rounded-lg border-gray-300  btn-sm bg-linear-to-r from-orange-400 to-orange-500 text-white py-2.5  font-medium "
+              className="btn btn-sm rounded-lg bg-linear-to-r from-orange-400 to-orange-500 text-white py-2.5 font-medium hover:from-orange-500 hover:to-orange-600 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-center"
             >
               {" "}
               Login

@@ -1,13 +1,25 @@
-import { useLoaderData, useNavigate } from "react-router";
+import { use, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
 import { toast } from "react-toastify";
+import { AuthContext } from "../../Context/AuthContext";
 
 const UpdateModel = () => {
-  const data = useLoaderData();
-  // const model = data;
-  const model = data.result;
-  console.log(data);
-  console.log(model);
+  const [model, setModel] = useState({});
   const navigate = useNavigate();
+  const { user } = use(AuthContext);
+  const { id } = useParams();
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/models/${id}`, {
+      headers: {
+        authorization: `Bearer ${user.accessToken}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setModel(data.result);
+      });
+  }, [user, id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,12 +37,13 @@ const UpdateModel = () => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        authorization: `Bearer ${user.accessToken}`,
       },
       body: JSON.stringify(formData),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         toast.success("Successfully Updated!");
         navigate(`/models/${model._id}`);
       })
@@ -131,7 +144,7 @@ const UpdateModel = () => {
 
           <button
             type="submit"
-            className="w-full py-3 rounded-xl bg-linear-to-r from-orange-400 to-orange-500 text-white font-medium hover:opacity-90 transition duration-300"
+            className="w-full text-white py-2.5 rounded-lg font-medium shadow-md  btn  bg-linear-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-center"
           >
             Update Model
           </button>

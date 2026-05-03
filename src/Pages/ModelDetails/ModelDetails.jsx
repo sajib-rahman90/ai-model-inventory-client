@@ -21,7 +21,7 @@ const ModelDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setModel(data.result);
         setLoading(false);
       });
@@ -42,11 +42,12 @@ const ModelDetails = () => {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
+            authorization: `Bearer ${user.accessToken}`,
           },
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            // console.log(data);
             Swal.fire({
               title: "Deleted!",
               text: "Your file has been deleted.",

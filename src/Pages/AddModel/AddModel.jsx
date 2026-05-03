@@ -125,7 +125,7 @@ const AddModel = () => {
 
           <button
             type="submit"
-            className="w-full py-3 rounded-xl bg-linear-to-r from-orange-400 to-orange-500 text-white font-medium hover:opacity-90 transition duration-300"
+            className="w-full text-white py-2.5 rounded-lg font-medium shadow-md  btn  bg-linear-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-center"
           >
             Add Model
           </button>

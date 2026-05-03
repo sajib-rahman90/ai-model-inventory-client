@@ -38,9 +38,9 @@ const Login = () => {
     // console.log("button is clicked");
     signInWithGoogleFunc()
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         navigate(location.state || "/");
-        toast.success("Google signin Succesfull");
+        toast.success("Google sign-in Succesfull.");
       })
       .catch((err) => {
         console.log(err);
@@ -101,8 +101,7 @@ const Login = () => {
             {/* Login Button */}
             <button
               type="submit"
-              className="w-full bg-linear-to-r from-orange-400 to-orange-500
-          text-white py-2.5 rounded-lg font-medium transition shadow-md"
+              className="w-full text-white py-2.5 rounded-lg font-medium shadow-md  btn  bg-linear-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-center"
             >
               Login
             </button>
