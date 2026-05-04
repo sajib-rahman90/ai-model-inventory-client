@@ -62,10 +62,10 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-orange-50 to-white pt-4 pb-4">
+    <div className="min-h-screen flex items-center justify-center  pt-4 pb-4">
       <PageTitle title="Registation - AI Model Inventory" />
       <div className="w-full max-w-md">
-        <div className="bg-white/80 backdrop-blur-lg border border-gray-200 rounded-2xl shadow-xl p-6 sm:p-8">
+        <div className="bg-white backdrop-blur-lg border border-gray-200 rounded-2xl shadow-xl p-6 sm:p-8">
           <form onSubmit={handleRegister} className="space-y-5">
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-center text-gray-800 leading-tight">
               Register for AI Model Inventory Manager
@@ -84,7 +84,7 @@ const Register = () => {
                 required
                 className="w-full px-4 py-2.5 rounded-lg border border-gray-300 
             focus:ring-2 focus:ring-orange-400 focus:border-orange-400 
-            outline-none transition"
+            outline-none transition text-gray-800"
               />
             </div>
 
@@ -100,7 +100,7 @@ const Register = () => {
                 required
                 className="w-full px-4 py-2.5 rounded-lg border border-gray-300 
             focus:ring-2 focus:ring-orange-400 focus:border-orange-400 
-            outline-none transition"
+            outline-none transition text-gray-800"
               />
             </div>
 
@@ -115,7 +115,7 @@ const Register = () => {
                 placeholder="https://your-image-link.com"
                 className="w-full px-4 py-2.5 rounded-lg border border-gray-300 
             focus:ring-2 focus:ring-orange-400 focus:border-orange-400 
-            outline-none transition"
+            outline-none transition text-gray-800"
               />
             </div>
 
@@ -131,12 +131,12 @@ const Register = () => {
                 required
                 className="w-full px-4 py-2.5 rounded-lg border border-gray-300 
             focus:ring-2 focus:ring-orange-400 focus:border-orange-400 
-            outline-none transition"
+            outline-none transition text-gray-800"
               />
 
               <span
                 onClick={() => setShow(!show)}
-                className="absolute right-2 top-9 cursor-pointer z-20"
+                className="absolute right-2 top-9 cursor-pointer z-20 text-gray-800"
               >
                 {show ? <FaEye /> : <IoEyeOff />}
               </span>

@@ -58,7 +58,7 @@ const AddModel = () => {
                 type="text"
                 name="name"
                 placeholder="Model Name"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400 text-gray-700"
               />
             </div>
 
@@ -70,7 +70,7 @@ const AddModel = () => {
                 type="text"
                 name="framework"
                 placeholder="(e.g.TensorFlow,PyTorch,Safetensor)"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400 text-gray-700"
               />
             </div>
           </div>
@@ -84,7 +84,7 @@ const AddModel = () => {
                 type="text"
                 name="useCase"
                 placeholder="(e.g. NLP, Computer Vision)"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400 text-gray-700"
               />
             </div>
 
@@ -96,7 +96,7 @@ const AddModel = () => {
                 type="text"
                 name="dataset"
                 placeholder="Dataset Name"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400 text-gray-700"
               />
             </div>
           </div>
@@ -109,7 +109,7 @@ const AddModel = () => {
               name="description"
               rows="4"
               placeholder="Short Description"
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400"
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400 text-gray-700"
             ></textarea>
           </div>
 
@@ -121,7 +121,7 @@ const AddModel = () => {
               type="url"
               name="image"
               placeholder="Image URL"
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400"
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400 text-gray-700"
             />
           </div>
 

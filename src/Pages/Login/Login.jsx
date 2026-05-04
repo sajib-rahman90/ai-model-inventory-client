@@ -49,10 +49,10 @@ const Login = () => {
       });
   };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-orange-50 to-white px-4">
+    <div className="min-h-screen flex items-center justify-center bg-linear-to-br px-4">
       <PageTitle title="Login - Ai Model Inventory" />
       <div className="w-full max-w-md">
-        <div className="bg-white/80 backdrop-blur-lg border border-gray-200 rounded-2xl shadow-xl p-6 sm:p-8">
+        <div className="bg-white backdrop-blur-lg border border-gray-200 rounded-2xl shadow-xl p-6 sm:p-8">
           <form onSubmit={handleLogIn} className="space-y-5">
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-center text-gray-800 leading-tight">
               Login to AI Model Inventory Manager
@@ -73,7 +73,7 @@ const Login = () => {
                 required
                 className="w-full px-4 py-2.5 rounded-lg border border-gray-300 
             focus:ring-2 focus:ring-orange-400 focus:border-orange-400 
-            outline-none transition"
+            outline-none transition text-gray-800"
               />
             </div>
 
@@ -89,7 +89,7 @@ const Login = () => {
                 required
                 className="w-full px-4 py-2.5 rounded-lg border border-gray-300 
             focus:ring-2 focus:ring-orange-400 focus:border-orange-400 
-            outline-none transition"
+            outline-none transition text-gray-800"
               />
             </div>
 

@@ -4,23 +4,20 @@ import React from "react";
 const AboutAiModels = () => {
   return (
     <div>
-      <section className="w-full py-14 px-4 md:px-8 ">
+      <section className="w-full py-14 px-4 md:px-8 bg-[#e0f5f0] ">
         <div className="max-w-5xl mx-auto">
-          {/* Heading */}
           <div className="text-center mb-10">
-            <h2 className="text-center text-2xl md:text-3xl lg:text-4xl font-bold">
+            <h2 className="text-center text-gray-800 text-2xl md:text-3xl lg:text-4xl font-bold">
               About AI Models
             </h2>
-            <p className="mt-3 text-gray-600 max-w-xl mx-auto">
+            <p className="mt-3 text-gray-700 max-w-xl mx-auto">
               AI models are the core of machine learning systems. They learn
               from data and help computers make decisions, predictions, and
               solve complex problems.
             </p>
           </div>
 
-          {/* Content */}
           <div className="grid md:grid-cols-2 gap-6">
-            {/* Card 1 */}
             <div className="bg-white p-5 rounded-xl shadow-sm  hover:shadow-lg transition">
               <div className="flex items-center gap-3 mb-3">
                 <div className="p-2 bg-blue-100 rounded-lg">
@@ -37,7 +34,6 @@ const AboutAiModels = () => {
               </p>
             </div>
 
-            {/* Card 2 */}
             <div className="bg-white p-5 rounded-xl shadow-sm  hover:shadow-lg transition">
               <div className="flex items-center gap-3 mb-3">
                 <div className="p-2 bg-green-100 rounded-lg">
@@ -53,7 +49,6 @@ const AboutAiModels = () => {
               </p>
             </div>
 
-            {/* Card 3 */}
             <div className="bg-white p-5 rounded-xl shadow-sm  hover:shadow-lg transition">
               <div className="flex items-center gap-3 mb-3">
                 <div className="p-2 bg-purple-100 rounded-lg">
@@ -67,7 +62,6 @@ const AboutAiModels = () => {
               </p>
             </div>
 
-            {/* Card 4 */}
             <div className="bg-white p-5 rounded-xl shadow-sm  hover:shadow-lg transition">
               <div className="flex items-center gap-3 mb-3">
                 <div className="p-2 bg-orange-100 rounded-lg">

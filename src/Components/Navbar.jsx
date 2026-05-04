@@ -246,8 +246,10 @@ const Navbar = () => {
                 className="menu  menu-sm dropdown-content bg-linear-to-r from-gray-100 to-orange-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
               >
                 <div className=" pb-3 border-b border-b-gray-200">
-                  <li className="text-sm font-bold">{user.displayName}</li>
-                  <li className="text-xs">{user.email}</li>
+                  <li className="text-sm font-bold text-gray-700">
+                    {user.displayName}
+                  </li>
+                  <li className="text-xs text-gray-700">{user.email}</li>
                 </div>
 
                 <li>
@@ -255,7 +257,7 @@ const Navbar = () => {
                     className={({ isActive }) =>
                       isActive
                         ? "text-md text-orange-500 font-semibold"
-                        : "text-md font-semibold"
+                        : "text-md font-semibold text-gray-800"
                     }
                     to={"/purchase"}
                   >
@@ -267,7 +269,7 @@ const Navbar = () => {
                     className={({ isActive }) =>
                       isActive
                         ? "text-md text-orange-500 font-semibold"
-                        : "text-md font-semibold"
+                        : "text-md font-semibold text-gray-800"
                     }
                     to={"/my-models"}
                   >
