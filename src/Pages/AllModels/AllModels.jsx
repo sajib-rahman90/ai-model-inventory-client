@@ -88,7 +88,7 @@ const AllModels = () => {
             <option value="">All Frameworks</option>
             <option value="TensorFlow">TensorFlow</option>
             <option value="PyTorch">PyTorch</option>
-            <option value="Safetensor">Safetensor</option>
+            <option value="Safetensors">Safetensors</option>
             <option value="Keras">Keras</option>
           </select>
         </div>
