@@ -67,7 +67,7 @@ const AddModel = () => {
               <input
                 type="text"
                 name="framework"
-                placeholder="(e.g. TensorFlow, PyTorch)"
+                placeholder="(e.g.TensorFlow,PyTorch,Safetensor)"
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400"
               />
             </div>

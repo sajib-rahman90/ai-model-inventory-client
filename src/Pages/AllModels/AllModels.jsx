@@ -7,12 +7,27 @@ const AllModels = () => {
   const data = useLoaderData();
   const [models, setModels] = useState(data);
   const [loading, setLoading] = useState(false);
+  const [framework, setFramework] = useState("");
+
   const handleSearch = (e) => {
     e.preventDefault();
     const search_text = e.target.search.value;
     setLoading(true);
 
     fetch(`http://localhost:3000/search?search=${search_text}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setModels(data);
+        setLoading(false);
+      });
+  };
+
+  const handleFilter = (e) => {
+    const framework = e.target.value;
+    setFramework(framework);
+    setLoading(true);
+
+    fetch(`http://localhost:3000/filter?framework=${framework}`)
       .then((res) => res.json())
       .then((data) => {
         setModels(data);
@@ -56,6 +71,27 @@ const AllModels = () => {
           Search
         </button>
       </form>
+      {/* Dropdown */}
+      <div className="w-full flex justify-center mt-6 px-4">
+        <div className="w-full sm:w-2/3 md:w-1/2 lg:w-1/3 bg-white shadow-md rounded-xl p-4">
+          <label className="block text-sm font-medium text-gray-600 mb-2 text-center">
+            Filter by Framework
+          </label>
+
+          <select
+            value={framework}
+            onChange={handleFilter}
+            className="w-full select select-bordered rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
+          >
+            <option value="">All Frameworks</option>
+            <option value="TensorFlow">TensorFlow</option>
+            <option value="PyTorch">PyTorch</option>
+            <option value="Safetensor">Safetensor</option>
+            <option value="Keras">Keras</option>
+          </select>
+        </div>
+      </div>
+
       <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 py-8  gap-8">
         {models.map((model) => (
           <AllModelsCard key={model._id} model={model} />

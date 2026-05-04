@@ -66,7 +66,7 @@ const MyPurchase = () => {
                 </p>
 
                 <Link
-                  to={`/models/${model._id}`}
+                  to={`/models/${model.modelId}`}
                   className="btn w-full rounded-lg border-gray-300 btn-sm bg-linear-to-r from-orange-400 to-orange-500 text-white py-2.5 font-medium hover:from-orange-500 hover:to-orange-600 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-center"
                 >
                   View Details

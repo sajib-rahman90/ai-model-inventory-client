@@ -11,11 +11,13 @@ import UpdateModel from "../Pages/UpdateModel/UpdateModel";
 import MyModels from "../Pages/MyModels/MyModels";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import MyPurchase from "../Pages/MyPurchase/MyPurchase";
+import Loading from "../Components/Loading";
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
     errorElement: <ErrorPage />,
+    hydrateFallbackElement: <Loading />,
     children: [
       {
         index: true,
