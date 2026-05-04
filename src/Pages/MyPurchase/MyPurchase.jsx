@@ -2,6 +2,7 @@ import React, { use, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import Loading from "../../Components/Loading";
 import { Link } from "react-router";
+import PageTitle from "../../Components/PageTitle";
 
 const MyPurchase = () => {
   const { user } = use(AuthContext);
@@ -23,6 +24,7 @@ const MyPurchase = () => {
   return (
     <div>
       <div className="w-11/12 mx-auto mt-7">
+        <PageTitle title="My Purchase - AI Model Inventory" />
         <h1 className="text-center text-2xl md:text-3xl lg:text-4xl font-bold">
           My Purchase
         </h1>

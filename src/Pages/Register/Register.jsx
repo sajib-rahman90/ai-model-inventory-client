@@ -4,6 +4,7 @@ import { AuthContext } from "../../Context/AuthContext";
 import { toast } from "react-toastify";
 import { FaEye } from "react-icons/fa";
 import { IoEyeOff } from "react-icons/io5";
+import PageTitle from "../../Components/PageTitle";
 
 const Register = () => {
   const { createUserFunc, signInWithGoogleFunc, user } = use(AuthContext);
@@ -62,6 +63,7 @@ const Register = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-orange-50 to-white pt-4 pb-4">
+      <PageTitle title="Registation - AI Model Inventory" />
       <div className="w-full max-w-md">
         <div className="bg-white/80 backdrop-blur-lg border border-gray-200 rounded-2xl shadow-xl p-6 sm:p-8">
           <form onSubmit={handleRegister} className="space-y-5">

@@ -1,11 +1,13 @@
 import React from "react";
 import error_page from "../../assets/error_page.png";
 import { Link } from "react-router";
+import PageTitle from "../../Components/PageTitle";
 
 const ErrorPage = () => {
   return (
     <div>
       <div className=" flex flex-col items-center justify-center p-5 lg:p-20 md:p-10  space-y-3">
+        <PageTitle title="Error Page" />
         <div className="w-2/3 h-2/3">
           <img src={error_page} alt="" />
         </div>

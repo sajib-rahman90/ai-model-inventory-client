@@ -2,6 +2,7 @@ import React, { use, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
 import { toast } from "react-toastify";
+import PageTitle from "../../Components/PageTitle";
 
 const Login = () => {
   const { signInUserFunc, signInWithGoogleFunc, user } = use(AuthContext);
@@ -49,6 +50,7 @@ const Login = () => {
   };
   return (
     <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-orange-50 to-white px-4">
+      <PageTitle title="Login - Ai Model Inventory" />
       <div className="w-full max-w-md">
         <div className="bg-white/80 backdrop-blur-lg border border-gray-200 rounded-2xl shadow-xl p-6 sm:p-8">
           <form onSubmit={handleLogIn} className="space-y-5">

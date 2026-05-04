@@ -3,6 +3,7 @@ import { AuthContext } from "../../Context/AuthContext";
 import Loading from "../../Components/Loading";
 import AllModelsCard from "../../Components/AllModelsCard";
 import { Link } from "react-router";
+import PageTitle from "../../Components/PageTitle";
 
 const MyModels = () => {
   const { user } = use(AuthContext);
@@ -24,6 +25,7 @@ const MyModels = () => {
   return (
     <div>
       <div className="w-11/12 mx-auto mt-7">
+        <PageTitle title="My Models - AI Model Inventory" />
         <h1 className="text-center text-2xl md:text-3xl lg:text-4xl font-bold">
           My Models
         </h1>

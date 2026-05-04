@@ -4,11 +4,13 @@ import FeaturedAiModels from "../../Components/FeaturedAiModels";
 import { useLoaderData } from "react-router";
 import GetStarted from "../../Components/GetStarted";
 import HomeSlider from "../../Components/HomeSlider";
+import PageTitle from "../../Components/PageTitle";
 
 const Home = () => {
   const models = useLoaderData();
   return (
     <div>
+      <PageTitle title="Home - AI Model Inventory" />
       <HomeSlider />
       <div className="w-11/12 mx-auto mt-7">
         <h1 className="text-center text-2xl md:text-3xl lg:text-4xl font-bold">

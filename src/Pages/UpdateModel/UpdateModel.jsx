@@ -2,6 +2,7 @@ import { use, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../Context/AuthContext";
+import PageTitle from "../../Components/PageTitle";
 
 const UpdateModel = () => {
   const [model, setModel] = useState({});
@@ -54,6 +55,7 @@ const UpdateModel = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center  px-4">
+      <PageTitle title="Update Model - AI Model Inventory" />
       <div className="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-6 md:p-10">
         <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-6 text-center">
           Update AI Model

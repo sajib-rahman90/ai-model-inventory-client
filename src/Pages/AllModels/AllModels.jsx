@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useLoaderData } from "react-router";
 import AllModelsCard from "../../Components/AllModelsCard";
 import Loading from "../../Components/Loading";
+import PageTitle from "../../Components/PageTitle";
 
 const AllModels = () => {
   const data = useLoaderData();
@@ -40,6 +41,7 @@ const AllModels = () => {
   }
   return (
     <div className="w-11/12 mx-auto mt-7">
+      <PageTitle title="All Model - AI Model Inventory" />
       <h1 className="text-center text-2xl md:text-3xl lg:text-4xl font-bold">
         All Models
       </h1>

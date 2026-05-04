@@ -2,6 +2,7 @@ import React, { use } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
+import PageTitle from "../../Components/PageTitle";
 
 const AddModel = () => {
   const { user } = use(AuthContext);
@@ -41,6 +42,7 @@ const AddModel = () => {
   };
   return (
     <div className="min-h-screen flex items-center justify-center  px-4">
+      <PageTitle title="Add Model - AI Model Inventory" />
       <div className="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-6 md:p-10">
         <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-6 text-center">
           Add New AI Model

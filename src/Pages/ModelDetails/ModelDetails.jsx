@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import Loading from "../../Components/Loading";
 import { AuthContext } from "../../Context/AuthContext";
 import { toast } from "react-toastify";
+import PageTitle from "../../Components/PageTitle";
 
 const ModelDetails = () => {
   const navigate = useNavigate();
@@ -103,6 +104,7 @@ const ModelDetails = () => {
   }
   return (
     <div className="min-h-screen  flex items-center justify-center px-4 py-10">
+      <PageTitle title="Model Details - AI Model Inventory" />
       <div className="w-full max-w-6xl bg-white rounded-3xl shadow-xl overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-3">
           <div className="lg:col-span-1 h-72 lg:h-full relative">
