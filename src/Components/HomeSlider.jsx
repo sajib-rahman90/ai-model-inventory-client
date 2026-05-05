@@ -38,23 +38,26 @@ const HomeSlider = () => {
         >
           {models.map((model) => (
             <SwiperSlide key={model._id}>
-              <div className="bg-white rounded-2xl shadow-sm hover:shadow-lg transition duration-300 overflow-hidden">
-                <div>
-                  <img
-                    src={model.image}
-                    alt={model.name}
-                    className="h-56 w-full object-cover"
-                  />
-                </div>
+              <div className="relative h-80 w-full rounded-2xl overflow-hidden group cursor-pointer">
+                <img
+                  src={model.image}
+                  alt={model.name}
+                  className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+                />
 
-                <div className="p-4 text-center">
-                  <h3 className="text-lg font-semibold text-gray-800">
+                <div className="absolute inset-0 bg-linear-to-t from-gray-800 via-black/40 to-transparent"></div>
+
+                <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 text-white">
+                  <h2 className="text-2xl md:text-3xl font-bold tracking-wide">
                     {model.name}
-                  </h3>
-                  <p className="text-sm text-gray-500 mt-1 line-clamp-2">
-                    {model.description || "AI Model"}
+                  </h2>
+
+                  <p className="mt-2 text-sm md:text-base opacity-90">
+                    {model.framework || "AI Framework"}
                   </p>
                 </div>
+
+                <div className="absolute bottom-0 left-0 w-0 h-1 bg-white group-hover:w-full transition-all duration-500"></div>
               </div>
             </SwiperSlide>
           ))}

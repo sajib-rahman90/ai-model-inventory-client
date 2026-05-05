@@ -34,7 +34,7 @@ const Navbar = () => {
     <div>
       <div className="navbar bg-base-100 shadow-sm">
         <div className="navbar-start">
-          <div className="dropdown">
+          <div className="dropdown z-9">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +123,7 @@ const Navbar = () => {
             <Link to="/" className="flex items-center gap-2 group">
               <img
                 className="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-110"
-                src="/AI Inventory.svg"
+                src="/Ai-inventory_Image.png"
                 alt="AI Model Logo"
               />
 

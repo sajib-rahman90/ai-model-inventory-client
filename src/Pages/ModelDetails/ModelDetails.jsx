@@ -29,6 +29,10 @@ const ModelDetails = () => {
       });
   }, [user, id, refetch]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleDelete = () => {
     Swal.fire({
       title: "Are you sure?",

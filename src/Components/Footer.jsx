@@ -10,7 +10,7 @@ const Footer = () => {
         <Link to="/" className="flex items-center gap-2 group">
           <img
             className="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-110"
-            src="/AI Inventory.svg"
+            src="/Ai-inventory_Image.png"
             alt="AI Model Logo"
           />
 

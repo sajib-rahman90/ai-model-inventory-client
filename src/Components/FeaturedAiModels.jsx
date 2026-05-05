@@ -20,7 +20,7 @@ const FeaturedAiModels = ({ model }) => {
           {model.framework}
         </p>
 
-        <p className="text-sm text-gray-500 leading-relaxed">
+        <p className="text-sm text-gray-500 leading-relaxed line-clamp-4">
           <span className="font-medium text-gray-700">Description:</span>{" "}
           {model.description}
         </p>

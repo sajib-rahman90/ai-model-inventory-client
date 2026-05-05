@@ -1,16 +1,118 @@
-# React + Vite
+# Project name : AI Model Inventory Manager.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Live URL site link :
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+A web application to manage an inventory of AI models, allowing users to add, view, edit, and delete AI model entries with details like model name, framework, use case, and dataset. The app will be responsive, secure, and integrate with MongoDB for data storage and Firebase for authentication.
 
-## React Compiler
+The application focuses on providing a smooth user experience with dynamic data handling, protected routes, and modern UI features like dark mode.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Key Features:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### User Authentication
+
+- User registration with name, email, photo URL, and password
+- Login system with email and password
+- Redirect to homepage after successful login
+- Conditional UI (user image when logged in, login button when not)
+
+### Home Page
+
+- Dynamic slider section
+- Dynamic data section showing 6 models from the database
+- Model cards with "View Details" functionality
+
+### Pages Structure
+
+- Home Page
+- All Models Page
+- Add Model Page (Private Route)
+- Model Details Page (Private Route)
+- My Models Page (Private Route)
+- My Purchases Page (Private Route)
+- Update Model (Private Route)
+- Delete Model (Private Route)
+
+### Private Routing
+
+- Protected routes for authenticated users only
+- Unauthorized users are redirected to the login page
+
+### Search & Filter
+
+- Search models by keywords
+- Filter models by categories or frameworks
+
+### Purchase System
+
+- Users can purchase models
+- Purchased models are stored and displayed in a dedicated page
+
+### My Models
+
+- Users can view all models they have added
+- Manage (update/delete) their own models
+
+### Dark Mode
+
+- Toggle between light and dark themes for better user experience
+
+---
+
+## Technology Stack:
+
+### Frontend
+
+- HTML
+- CSS
+- JavaScript
+- React
+
+### Backend
+
+- Node.js
+- Express.js
+
+### Database
+
+- MongoDB
+
+### Authentication & Security
+
+- Firebase Authentication
+- Firebase Admin SDK for token verification
+- Secure API with user token validation
+
+---
+
+## Core Functionality Summary
+
+- Users can create, read, update, and delete AI models
+- Users can purchase models and track them
+- Dynamic UI updates based on database data
+- Secure communication between frontend and backend
+- Role-based content visibility using authentication
+
+---
+
+## NPM Packages Used are :
+
+- @tailwindcss/vite
+- lucide-react
+- react-dom
+- react-helmet-async
+- react-icons
+- react-router
+- react-toastify
+- sweetalert2
+- swiper
+- tailwindcss
+
+---
+
+## Conclusion
+
+This project represents a complete full-stack application with real-world features such as authentication, protected routes, dynamic data rendering, and secure API handling. It demonstrates how modern web technologies can be combined to build a scalable and user-focused platform.
