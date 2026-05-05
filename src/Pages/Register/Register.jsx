@@ -7,7 +7,8 @@ import { IoEyeOff } from "react-icons/io5";
 import PageTitle from "../../Components/PageTitle";
 
 const Register = () => {
-  const { createUserFunc, signInWithGoogleFunc, user } = use(AuthContext);
+  const { createUserFunc, signInWithGoogleFunc, user, updateUserProfileFunc } =
+    use(AuthContext);
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
 
@@ -36,11 +37,11 @@ const Register = () => {
     }
 
     createUserFunc(email, password)
-      .then((res) => {
-        // console.log(res.user);
+      .then(async (res) => {
+        await updateUserProfileFunc(name, photoURL);
         e.target.reset();
-        navigate(location.state || "/");
-        toast.success("Ragestation is Succesfull");
+        navigate("/");
+        toast.success("Registration Successful");
       })
       .catch((err) => {
         const errorCode = err.code;

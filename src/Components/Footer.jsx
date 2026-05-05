@@ -21,8 +21,7 @@ const Footer = () => {
         <p>
           AI Model Inventory Manager.
           <br />
-          Copyright © {new Date().getFullYear()} - Providing reliable tech since
-          1992
+          Copyright © {new Date().getFullYear()} - All right reserved.
         </p>
       </aside>
       <nav>
