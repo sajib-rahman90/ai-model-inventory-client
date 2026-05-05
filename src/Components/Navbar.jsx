@@ -7,7 +7,6 @@ import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { user, signOutUserFunc } = use(AuthContext);
-  // console.log(user);
 
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 

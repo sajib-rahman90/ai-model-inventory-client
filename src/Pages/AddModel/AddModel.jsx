@@ -33,7 +33,7 @@ const AddModel = () => {
       .then((res) => res.json())
       .then((data) => {
         toast.success("Successfully added!");
-        console.log(data);
+        // console.log(data);
         navigate("/models");
       })
       .catch((err) => {

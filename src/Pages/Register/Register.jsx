@@ -37,7 +37,7 @@ const Register = () => {
 
     createUserFunc(email, password)
       .then((res) => {
-        console.log(res.user);
+        // console.log(res.user);
         e.target.reset();
         navigate(location.state || "/");
         toast.success("Ragestation is Succesfull");
@@ -54,7 +54,7 @@ const Register = () => {
     // console.log("butoon is clicked");
     signInWithGoogleFunc()
       .then((res) => {
-        console.log(res);
+        // console.log(res);
       })
       .catch((erro) => {
         console.log(erro);

@@ -8,8 +8,6 @@ const Login = () => {
   const { signInUserFunc, signInWithGoogleFunc, user } = use(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
-  // console.log(location);
-  // console.log(user);
 
   useEffect(() => {
     if (user) {
@@ -24,7 +22,7 @@ const Login = () => {
 
     signInUserFunc(email, password)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         e.target.reset();
         navigate(location.state || "/");
         toast.success("Login Succesfull!");
