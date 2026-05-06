@@ -15,7 +15,9 @@ const AllModels = () => {
     const search_text = e.target.search.value;
     setLoading(true);
 
-    fetch(`http://localhost:3000/search?search=${search_text}`)
+    fetch(
+      `https://ai-model-inventory-server-sigma.vercel.app/search?search=${search_text}`,
+    )
       .then((res) => res.json())
       .then((data) => {
         setModels(data);
@@ -28,7 +30,9 @@ const AllModels = () => {
     setFramework(framework);
     setLoading(true);
 
-    fetch(`http://localhost:3000/filter?framework=${framework}`)
+    fetch(
+      `https://ai-model-inventory-server-sigma.vercel.app/filter?framework=${framework}`,
+    )
       .then((res) => res.json())
       .then((data) => {
         setModels(data);

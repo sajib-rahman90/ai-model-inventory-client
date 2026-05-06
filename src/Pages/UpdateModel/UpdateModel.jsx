@@ -11,7 +11,7 @@ const UpdateModel = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/models/${id}`, {
+    fetch(`https://ai-model-inventory-server-sigma.vercel.app/models/${id}`, {
       headers: {
         authorization: `Bearer ${user.accessToken}`,
       },
@@ -34,14 +34,17 @@ const UpdateModel = () => {
       image: e.target.image.value,
     };
 
-    fetch(`http://localhost:3000/models/${model._id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${user.accessToken}`,
+    fetch(
+      `https://ai-model-inventory-server-sigma.vercel.app/models/${model._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${user.accessToken}`,
+        },
+        body: JSON.stringify(formData),
       },
-      body: JSON.stringify(formData),
-    })
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);

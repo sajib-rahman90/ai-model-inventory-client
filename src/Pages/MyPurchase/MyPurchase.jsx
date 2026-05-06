@@ -10,7 +10,9 @@ const MyPurchase = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/my-purchase?email=${user.email}`)
+    fetch(
+      `https://ai-model-inventory-server-sigma.vercel.app/my-purchase?email=${user.email}`,
+    )
       .then((res) => res.json())
       .then((data) => {
         setModels(data);

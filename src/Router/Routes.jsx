@@ -22,12 +22,16 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
-        loader: () => fetch("http://localhost:3000/latest-models"),
+        loader: () =>
+          fetch(
+            "https://ai-model-inventory-server-sigma.vercel.app/latest-models",
+          ),
       },
       {
         path: "/models",
         element: <AllModels />,
-        loader: () => fetch("http://localhost:3000/models"),
+        loader: () =>
+          fetch("https://ai-model-inventory-server-sigma.vercel.app/models"),
       },
       {
         path: "/add-model",

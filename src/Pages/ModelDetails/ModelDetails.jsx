@@ -17,7 +17,7 @@ const ModelDetails = () => {
   const isOwner = user?.email === model?.createdBy;
 
   useEffect(() => {
-    fetch(`http://localhost:3000/models/${id}`, {
+    fetch(`https://ai-model-inventory-server-sigma.vercel.app/models/${id}`, {
       headers: {
         authorization: `Bearer ${user.accessToken}`,
       },
@@ -44,13 +44,16 @@ const ModelDetails = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed)
-        fetch(`http://localhost:3000/models/${model._id}`, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-            authorization: `Bearer ${user.accessToken}`,
+        fetch(
+          `https://ai-model-inventory-server-sigma.vercel.app/models/${model._id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              authorization: `Bearer ${user.accessToken}`,
+            },
           },
-        })
+        )
           .then((res) => res.json())
           .then((data) => {
             // console.log(data);
@@ -81,13 +84,16 @@ const ModelDetails = () => {
       createdAt: new Date(),
       modelId: model._id,
     };
-    fetch(`http://localhost:3000/purchase/${model._id}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    fetch(
+      `https://ai-model-inventory-server-sigma.vercel.app/purchase/${model._id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(finalPurchase),
       },
-      body: JSON.stringify(finalPurchase),
-    })
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);

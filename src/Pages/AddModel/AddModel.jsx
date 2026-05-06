@@ -23,7 +23,7 @@ const AddModel = () => {
       purchased: 0,
     };
     // console.log(formData);
-    fetch("http://localhost:3000/models", {
+    fetch("https://ai-model-inventory-server-sigma.vercel.app/models", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

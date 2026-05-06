@@ -10,7 +10,7 @@ const HomeSlider = () => {
   const [models, setModels] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/random-models")
+    fetch("https://ai-model-inventory-server-sigma.vercel.app/random-models")
       .then((res) => res.json())
       .then((data) => setModels(data))
       .catch((err) => console.log(err));

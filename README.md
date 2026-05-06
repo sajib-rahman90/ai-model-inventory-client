@@ -1,6 +1,6 @@
 # Project name : AI Model Inventory Manager.
 
-# Live URL site link :
+# Live URL site link : https://ai-model-inventory-sajibrahman0090.netlify.app/
 
 ## Project Overview
 
